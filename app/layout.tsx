@@ -1,10 +1,10 @@
 import "./globals.css"
 import Navbar from "./components/Navbar"
-import MyProfilePic from "./components/MyProfilePic"
+import { ThemeProvider } from "./components/ThemeProvider"
 
 export const metadata = {
-  title: "Dave's Blog",
-  description: "Created by Dave Gray",
+  title: "Joy's Blog",
+  description: "Created by Joy Peng",
 }
 
 export default function RootLayout({
@@ -13,11 +13,14 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="en">
-      <body className="dark:bg-slate-800">
-        <Navbar />
-        {/* <MyProfilePic /> */}
-        {children}
+    <html lang="en" suppressHydrationWarning>
+      <head />
+      <body>
+        <ThemeProvider attribute="class" defaultTheme="system">
+          <Navbar />
+          {/* <MyProfilePic /> */}
+          {children}
+        </ThemeProvider>
       </body>
     </html>
   )

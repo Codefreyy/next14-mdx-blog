@@ -11,7 +11,9 @@ module.exports = {
     colors: {
       themePink: "#db2777",
       white: "#fff",
+      black: "#121212",
     },
   },
+  darkMode: "class",
   plugins: [require("@tailwindcss/typography")],
 }
