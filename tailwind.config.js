@@ -1,4 +1,6 @@
 /** @type {import('tailwindcss').Config} */
+const colors = require("tailwindcss/colors")
+
 module.exports = {
   content: [
     "./app/**/*.{js,ts,jsx,tsx}",
@@ -10,8 +12,15 @@ module.exports = {
     fontFamily: {},
     colors: {
       themePink: "#db2777",
-      white: "#fff",
+      transparent: "transparent",
+      current: "currentColor",
       black: "#121212",
+      white: colors.white,
+      gray: colors.slate,
+      green: colors.emerald,
+      purple: colors.violet,
+      yellow: colors.amber,
+      pink: colors.fuchsia,
     },
   },
   darkMode: "class",

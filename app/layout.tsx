@@ -1,8 +1,9 @@
 import "./globals.css"
 import Navbar from "./components/Navbar"
 import { ThemeProvider } from "./components/ThemeProvider"
+import { Metadata } from "next"
 
-export const metadata = {
+export const metadata: Metadata = {
   title: "Joy's Blog",
   description: "Created by Joy Peng",
 }
@@ -18,8 +19,9 @@ export default function RootLayout({
       <body>
         <ThemeProvider attribute="class" defaultTheme="system">
           <Navbar />
-          {/* <MyProfilePic /> */}
-          {children}
+          <main className="px-4 md:px-6 prose prose-xl prose-slate dark:prose-invert mx-auto">
+            {children}
+          </main>
         </ThemeProvider>
       </body>
     </html>
