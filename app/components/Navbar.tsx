@@ -4,9 +4,9 @@ import { ModeToggle } from "./ModeToggler"
 export default function Navbar() {
   return (
     <nav className="dark:bg-black  bg-white p-4 sticky top-0 shadow-md z-1">
-      <div className="md:px-6 mx-auto flex justify-between flex-col sm:flex-row  px-4 max-w-5xl">
+      <div className="md:px-6 mx-auto flex justify-between  sm:flex-row flex-nowrap px-4 max-w-5xl">
         <h1 className="text-2xl font-bold grid  mb-2 md:mb-0">
-          <Link href="/" className="no-underline text-themePink ">
+          <Link href="/" className="no-underline text-themePink">
             Joy Peng
           </Link>
         </h1>

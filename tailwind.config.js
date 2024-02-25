@@ -3,25 +3,18 @@ const colors = require("tailwindcss/colors")
 
 module.exports = {
   content: [
-    "./app/**/*.{js,ts,jsx,tsx}",
-    "./pages/**/*.{js,ts,jsx,tsx}",
-    "./components/**/*.{js,ts,jsx,tsx}",
+    "./app/**/*.{js,ts,jsx,tsx,mdx}",
+    "./pages/**/*.{js,ts,jsx,tsx,mdx}",
+    "./components/**/*.{js,ts,jsx,tsx,mdx}",
   ],
   theme: {
-    extend: {},
-    fontFamily: {},
-    colors: {
-      themePink: "#db2777",
-      transparent: "transparent",
-      current: "currentColor",
-      black: "#121212",
-      white: colors.white,
-      gray: colors.slate,
-      green: colors.emerald,
-      purple: colors.violet,
-      yellow: colors.amber,
-      pink: colors.fuchsia,
+    extend: {
+      colors: {
+        themePink: "#db2777",
+        black: "#121212",
+      },
     },
+    fontFamily: {},
   },
   darkMode: "class",
   plugins: [require("@tailwindcss/typography")],

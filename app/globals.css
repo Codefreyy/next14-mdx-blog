@@ -4,6 +4,10 @@
 @tailwind components;
 @tailwind utilities;
 
+.prose :where(a):not(:where([class~="not-prose"] *)) {
+  text-decoration: none;
+}
+
 @layer base {
   html {
     font-family: Montserrat;

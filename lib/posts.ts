@@ -1,4 +1,7 @@
 import { compileMDX } from 'next-mdx-remote/rsc'
+import rehypeAutolinkHeadings from 'rehype-autolink-headings'
+import rehypeHighlight from 'rehype-highlight'
+import rehypeSlug from 'rehype-slug'
 
 type Filetree = {
     "tree": [
@@ -9,7 +12,7 @@ type Filetree = {
 }
 
 export async function getPostByName(fileName: string): Promise<BlogPost | undefined> {
-    const res = await fetch(`https://raw.githubsercontent.com/Codefreyy/next14-mdx-blog/main/${fileName}`, {
+    const res = await fetch(`https://raw.githubusercontent.com/Codefreyy/blog-posts/main/${fileName}`, {
         headers: {
             Accept: 'application/vnd.github+json',
             Authorization: `Bearer ${process.env.GITHUB_TOKEN}`,
@@ -17,31 +20,40 @@ export async function getPostByName(fileName: string): Promise<BlogPost | undefi
         }
     })
     if (!res.ok) return undefined
-
     const rawMDX = await res.text()
-
     if (rawMDX === '404: Not Found') return undefined
 
     const { frontmatter, content } = await compileMDX<{
         title: string, date: string, tags: string[]
     }>({
         source: rawMDX, options: {
-            parseFrontmatter: true
+            parseFrontmatter: true,
+            mdxOptions: {
+                remarkPlugins: [],
+                rehypePlugins: [
+                    //@ts-ignore
+                    rehypeHighlight,
+                    rehypeSlug,
+                    [rehypeAutolinkHeadings, {
+                        behavior: 'wrap'
+                    }]]
+            }
         }
     })
 
-    const id = fileName.replace(/\.mdx/, '')
+    const id = fileName.replace(/\.mdx$/, '')
     const blogPostObj: BlogPost = {
         meta: {
             id, title: frontmatter.title, date: frontmatter.date, tags: frontmatter.tags
         },
         content
     }
+
     return blogPostObj
 }
 
 export async function getPostMeta(): Promise<Meta[] | undefined> {
-    const res = await fetch('https://api.github.com/repos/Codefreyy/next14-mdx-blog/git/trees/main?recursive=1', {
+    const res = await fetch('https://api.github.com/repos/Codefreyy/blog-posts/git/trees/main?recursive=1', {
         headers: {
             Accept: 'application/vnd.github+json',
             Authorization: `Bearer ${process.env.GITHUB_TOKEN}`,
@@ -53,7 +65,6 @@ export async function getPostMeta(): Promise<Meta[] | undefined> {
 
     const repoFiletree: Filetree = await res.json()
     const filesArray = repoFiletree.tree.map(obj => obj.path).filter(path => path.endsWith('.mdx'))
-    console.log({ filesArray })
     const posts: Meta[] = []
 
     for (const file of filesArray) {

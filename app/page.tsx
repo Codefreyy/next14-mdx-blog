@@ -11,6 +11,7 @@ export default function Home() {
           I'm <span className="font-bold">Joy</span>.
         </span>
       </p>
+      {/* @ts-expect-error Server Component*/}
       <Posts />
     </div>
   )
