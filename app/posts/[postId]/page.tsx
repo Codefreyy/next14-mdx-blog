@@ -54,7 +54,11 @@ export default async function Post({ params: { postId } }: Props) {
 
       <section>
         <h3>Related:</h3>
-        <div className="flex flex-row gap-4">{tags}</div>
+        <div className="flex flex-row gap-4 ">
+          {tags.map((tag) => {
+            return <div className="link">{tag.props.children}</div>
+          })}
+        </div>
       </section>
 
       <p className="mb-10">
