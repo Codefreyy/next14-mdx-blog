@@ -19,7 +19,7 @@ export default function RootLayout({
       <body>
         <ThemeProvider attribute="class" defaultTheme="system">
           <Navbar />
-          <main className="mt-10 px-4 md:px-6 prose prose-md prose-slate dark:prose-invert mx-auto">
+          <main className="mt-10 px-4 prose prose-md prose-slate dark:prose-invert max-w-3xl mx-auto">
             {children}
           </main>
         </ThemeProvider>
