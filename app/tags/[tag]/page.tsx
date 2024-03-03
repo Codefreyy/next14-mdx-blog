@@ -43,7 +43,7 @@ export default async function TagPostList({ params: { tag } }: Props) {
   return (
     <>
       <h2 className="text-3xl mt-4 mb-0">Result for: #{tag}</h2>
-      <section className="mt-6 mx-auto max-w-2xl">
+      <section className="mt-6 mx-auto max-w-4xl">
         <ul className="w-full list-none p-0">
           {tagPosts.map((post) => (
             <ListItem key={post.id} post={post} />

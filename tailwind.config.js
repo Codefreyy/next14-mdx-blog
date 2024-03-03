@@ -10,7 +10,8 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        themePink: "#db2777",
+        themePink: "#d22d68",
+        darkPink: "#ea3578",
         black: "#121212",
       },
     },

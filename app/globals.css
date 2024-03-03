@@ -16,6 +16,6 @@
 
 @layer utilities {
   .link {
-    @apply underline underline-offset-1 hover:text-themePink hover:no-underline dark:hover:no-underline dark:hover:text-themePink cursor-pointer;
+    @apply underline underline-offset-1 hover:text-themePink hover:no-underline dark:hover:no-underline dark:hover:text-darkPink cursor-pointer;
   }
 }

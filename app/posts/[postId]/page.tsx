@@ -56,10 +56,11 @@ export default async function Post({ params: { postId } }: Props) {
         <h3>Related:</h3>
         <div className="flex flex-row gap-4 ">
           {tags.map((tag, i) => {
+            console.log(tag)
             return (
-              <div key={i} className="link">
+              <Link href={tag.props.href} key={i} className="link">
                 {tag.props.children}
-              </div>
+              </Link>
             )
           })}
         </div>
