@@ -21,7 +21,7 @@ export async function generateStaticParams() {
 }
 
 export async function generateMetadata({ params: { postId } }: Props) {
-  const post = await getPostByName(`${postId}.mdx`)
+  const post = await getPostByName(`posts/${postId}.mdx`)
   if (!post) {
     return {
       title: "Post Not Found",
@@ -55,8 +55,12 @@ export default async function Post({ params: { postId } }: Props) {
       <section>
         <h3>Related:</h3>
         <div className="flex flex-row gap-4 ">
-          {tags.map((tag) => {
-            return <div className="link">{tag.props.children}</div>
+          {tags.map((tag, i) => {
+            return (
+              <div key={i} className="link">
+                {tag.props.children}
+              </div>
+            )
           })}
         </div>
       </section>

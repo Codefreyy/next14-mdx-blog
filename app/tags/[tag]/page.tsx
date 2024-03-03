@@ -2,7 +2,7 @@ import { getPostMeta } from "@/lib/posts"
 import ListItem from "@/app/components/ListItem"
 import Link from "next/link"
 
-export const revalidate = 0
+export const revalidate = 86400
 
 type Props = {
   params: {
@@ -10,15 +10,15 @@ type Props = {
   }
 }
 
-// export async function generateStaticParams() {
-//   const posts = await getPostMeta()
-//   if (!posts) return []
+export async function generateStaticParams() {
+  const posts = await getPostMeta()
+  if (!posts) return []
 
-//   const tags = new Set(posts.map((post) => post.tags).flat())
-//   return Array.from(tags).map((tag) => {
-//     tag
-//   })
-// }
+  const tags = new Set(posts.map((post) => post.tags).flat())
+  return Array.from(tags).map((tag) => {
+    tag
+  })
+}
 
 export function generateMetadata({ params: { tag } }: Props) {
   return {
