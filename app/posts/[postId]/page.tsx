@@ -56,9 +56,8 @@ export default async function Post({ params: { postId } }: Props) {
         <h3>Related:</h3>
         <div className="flex flex-row gap-4 ">
           {tags.map((tag, i) => {
-            console.log(tag)
             return (
-              <Link href={tag.props.href} key={i} className="link">
+              <Link href={tag.props.href} key={i} className="link-underline">
                 {tag.props.children}
               </Link>
             )
@@ -67,7 +66,9 @@ export default async function Post({ params: { postId } }: Props) {
       </section>
 
       <p className="mb-10">
-        <Link href="/">← Back to home</Link>
+        <Link href="/" className="link underline">
+          ← Back to home
+        </Link>
       </p>
     </>
   )

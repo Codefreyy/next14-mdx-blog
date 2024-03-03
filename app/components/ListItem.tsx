@@ -1,26 +1,24 @@
 import Link from "next/link"
-import getFormattedDate from "@/lib/getFormattedDate"
 
 type Props = {
   post: Meta
 }
 
 export default function ListItem({ post }: Props) {
-  const { id, title, date, description } = post
-  // const formattedDate = getFormattedDate(date)
-
+  const { id, title, description } = post
+  console.log(id) //posts/multi-languages
   return (
-    <li className="mt-4 text-2xl dark:text-white/90 mb-10">
+    <li className="mt-4 text-2xl dark:text-white/90 mb-10 group">
       <Link
-        className="link font-medium peer peer-hover:text-themePink"
-        href={`${id}`}
+        className="link-no-underline font-medium group-hover:text-themePink"
+        href={`/${id}`}
       >
         {title}
+        <p className="text-sm text-slate-400 mt-1 mb-0">{description}</p>
       </Link>
-      <p className="text-sm text-slate-400 mt-1 mb-0">{description}</p>
       <a
-        className="text-sm peer-hover:underline peer hover/item:text-themePink font-medium link"
-        href={`${id}`}
+        className="text-sm group-hover:text-themePink group-hover:underline font-medium link-no-underline"
+        href={`/${id}`}
       >
         Read more
       </a>
