@@ -4,7 +4,7 @@ import rehypeHighlight from 'rehype-highlight'
 import rehypeSlug from 'rehype-slug'
 import Video from '../app/components/Video';
 import CustomImage from '../app/components/CustomImage';
-import { remarkSandpack } from 'remark-sandpack/index.cjs';
+import { remarkSandpack } from 'remark-sandpack';
 
 type Filetree = {
     "tree": [
@@ -37,7 +37,7 @@ export async function getPostByName(fileName: string): Promise<BlogPost | undefi
         options: {
             parseFrontmatter: true,
             mdxOptions: {
-                // remarkPlugins: [[remarkSandpack, { componentName: 'SandpackEnhanced' }]],
+                remarkPlugins: [[remarkSandpack, { componentName: 'CodeEditor' }]],
                 rehypePlugins: [
                     //@ts-ignore
                     rehypeHighlight,
