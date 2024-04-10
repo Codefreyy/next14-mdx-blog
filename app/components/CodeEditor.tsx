@@ -56,14 +56,13 @@ export default function CodeEditor(props: any) {
       active: fileActive,
     }
     return result
-  }, {})
+  }, {}) as any
 
   return (
     <Sandpack
       template={template}
-      theme={nightOwlTheme}
       customSetup={{
-        files,
+        ...files, // Add the files property to the customSetup object
         dependencies: {},
       }}
       options={{
