@@ -67,7 +67,6 @@ export async function getPostMeta(): Promise<Meta[] | undefined> {
             'X-Github-Api-Version': '2022-11-28'
         }
     })
-    console.log(res.ok)
     if (!res.ok) return undefined
 
     const repoFiletree: Filetree = await res.json()
@@ -82,7 +81,6 @@ export async function getPostMeta(): Promise<Meta[] | undefined> {
         }
     }
 
-    console.log(posts)
 
     return posts.sort((a, b) => a.date < b.date ? 1 : -1)
 }

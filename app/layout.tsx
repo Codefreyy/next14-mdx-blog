@@ -1,6 +1,5 @@
 import "./globals.css"
 import Navbar from "./components/Navbar"
-import { ThemeProvider } from "./components/ThemeProvider"
 import { Metadata } from "next"
 
 export const metadata: Metadata = {
@@ -16,13 +15,11 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <head />
-      <body>
-        <ThemeProvider attribute="class" defaultTheme="system">
-          <Navbar />
-          <main className="mt-10 px-4 prose prose-md prose-slate dark:prose-invert max-w-3xl mx-auto">
-            {children}
-          </main>
-        </ThemeProvider>
+      <body className="dark:bg-themeBlack">
+        <Navbar />
+        <main className="mt-10 px-4 prose dark:prose-invert max-w-3xl mx-auto">
+          {children}
+        </main>
       </body>
     </html>
   )

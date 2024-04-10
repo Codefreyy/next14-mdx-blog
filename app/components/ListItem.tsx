@@ -6,7 +6,6 @@ type Props = {
 
 export default function ListItem({ post }: Props) {
   const { id, title, description } = post
-  console.log(id) //posts/multi-languages
   return (
     <li className="mt-4 text-2xl dark:text-white/90 mb-10 group">
       <Link

@@ -1,10 +1,10 @@
 "use client"
 
 import * as React from "react"
-import { useTheme } from "next-themes"
+import useDarkMode from "../hooks/useDarkMode"
 
 export function ModeToggle() {
-  const { theme, setTheme } = useTheme()
+  const { isDark, setIsDark } = useDarkMode()
 
   const playSwitchSound = (isOn: boolean) => {
     let switchSound
@@ -22,24 +22,24 @@ export function ModeToggle() {
         type="checkbox"
         name="light-switch"
         className="light-switch sr-only"
-        checked={theme === "light"}
+        checked={isDark === false}
         onChange={() => {
-          if (theme === "dark") {
-            return setTheme("light")
+          if (isDark === true) {
+            return setIsDark(false)
           }
-          return setTheme("dark")
+          return setIsDark(true)
         }}
       />
       <label
         className="relative cursor-pointer p-2"
         htmlFor="light-switch"
         onClick={() => {
-          if (theme === "dark") {
+          if (isDark) {
             playSwitchSound(false)
-            return setTheme("light")
+            return setIsDark(false)
           }
           playSwitchSound(true)
-          return setTheme("dark")
+          return setIsDark(true)
         }}
       >
         <svg

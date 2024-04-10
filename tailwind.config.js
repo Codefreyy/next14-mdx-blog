@@ -12,7 +12,7 @@ module.exports = {
       colors: {
         themePink: "#d22d68",
         darkPink: "#ea3578",
-        black: "#121212",
+        themeBlack: "#10141a",
       },
     },
     fontFamily: {},
