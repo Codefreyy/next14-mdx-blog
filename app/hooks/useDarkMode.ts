@@ -3,7 +3,13 @@ import { useEffect, useState } from "react";
 const matchDark = '(prefers-color-scheme: dark)'; // store the media query in a variable
 
 export default function useDarkMode() {
-    const [isDark, setIsDark] = useState(() => window.matchMedia && window.matchMedia(matchDark).matches); // check if the user prefers dark mode
+    const [isDark, setIsDark] = useState(() => {
+        if (typeof window !== 'undefined' && window.matchMedia) {
+            return window.matchMedia(matchDark).matches;
+        }
+        return false; // Default value if window or matchMedia is not available
+    }); // check if the user prefers dark mode
+
     useEffect(() => {
         const mediaQuery = window.matchMedia(matchDark);
 

@@ -8,7 +8,7 @@ export default async function Posts() {
   }
 
   return (
-    <section className="mt-6 max-w-3xl mx-auto">
+    <section className="mt-6 max-w-4xl mx-auto">
       <h2 className="text-2xl font-normal uppercase text-themePink dark:text-[#ea3578]">
         Blogs
       </h2>
