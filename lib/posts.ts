@@ -3,6 +3,7 @@ import rehypeAutolinkHeadings from 'rehype-autolink-headings'
 import rehypeHighlight from 'rehype-highlight'
 import rehypeSlug from 'rehype-slug'
 import Video from '../app/components/Video';
+import CodeEditor from '@/app/components/CodeEditor';
 import CustomImage from '../app/components/CustomImage';
 import { remarkSandpack } from 'remark-sandpack';
 
@@ -32,7 +33,9 @@ export async function getPostByName(fileName: string): Promise<BlogPost | undefi
         source: rawMDX,
         components: {
             Video,
-            CustomImage
+            CustomImage,
+            CodeEditor
+
         },
         options: {
             parseFrontmatter: true,
