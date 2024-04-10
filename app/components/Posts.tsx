@@ -9,7 +9,7 @@ export default async function Posts() {
 
   return (
     <section className="mt-6 max-w-4xl mx-auto">
-      <h2 className="text-2xl font-normal uppercase text-themePink dark:text-[#ea3578]">
+      <h2 className="text-2xl font-normal uppercase text-themePink dark:text-darkThemePink">
         Blogs
       </h2>
       <ul className="w-full list-none p-0">

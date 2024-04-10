@@ -13,6 +13,7 @@ module.exports = {
         themePink: "#d22d68",
         darkPink: "#ea3578",
         themeBlack: "#10141a",
+        darkThemePink: "#ea3578",
       },
     },
     fontFamily: {},

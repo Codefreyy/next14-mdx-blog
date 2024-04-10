@@ -17,7 +17,7 @@ export default function RootLayout({
       <head />
       <body className="dark:bg-themeBlack">
         <Navbar />
-        <main className="mt-10 px-4 prose dark:prose-invert max-w-3xl mx-auto">
+        <main className="mt-10 px-4 prose dark:prose-invert max-w-4xl mx-auto">
           {children}
         </main>
       </body>
