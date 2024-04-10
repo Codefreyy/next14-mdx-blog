@@ -1,6 +1,6 @@
 import Posts from "./components/Posts"
 
-export const revalidate = 1 * 10
+export const revalidate = 0
 
 export default function Home() {
   return (
